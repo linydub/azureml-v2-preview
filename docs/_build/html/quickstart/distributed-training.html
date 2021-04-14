@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Deploy Models (WIP)" href="endpoints.html" /><link rel="prev" title="Train Models (Create Jobs)" href="jobs.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Distributed Training - azure.ml 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">azure.ml 0.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">azure.ml 0.1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/setup.html">Cloud Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tooling.html">Tooling Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Distributed Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints.html">Deploy Models (WIP)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview/concepts.html">Concepts</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview/concepts/workspace.html">Manage Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/concepts/compute.html">Compute Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/concepts/datastore.html">Manage Datastores (WIP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/concepts/data.html">Manage Data Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/concepts/environment.html">Manage Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/concepts/sweepjob.html">Hyperparameter tune (SweepJob)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/concepts/model.html">Manage Models</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../overview/concepts/endpoint.html">Manage Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../overview/concepts/endpoints/online-endpoint/online-endpoint.html">Online Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../overview/concepts/endpoints/online-endpoint/scenarios.html">Deployment Scenarios</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../overview/concepts/endpoints/online-endpoint/scenarios/simple-deploy-flow.html">Simple deploy flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../overview/concepts/endpoints/online-endpoint/scenarios/declarative-flow.html">Declarative Canary Flow (aka Gitops flow)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../overview/concepts/endpoints/online-endpoint/scenarios/imperative-flow.html">Imperative Canary Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../overview/concepts/endpoints/online-endpoint/managed-online-endpoints.html">Managed online endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/concepts/endpoints/batch-endpoint/batch-endpoint.html">Batch Endpoint (WIP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/templates.html">ARM Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/qna.html">Q&amp;A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/azure-ml.html">Azure-ML Reference</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="distributed-training">
+<h1>Distributed Training<a class="headerlink" href="#distributed-training" title="Permalink to this headline">¶</a></h1>
+<p>You can run a distributed job by specifying the <code class="docutils literal notranslate"><span class="pre">distribution</span></code> section in a command job yaml file.</p>
+<p>The CLI currently supports the following distributed job types: MPI, TensorFlow, and PyTorch.</p>
+<div class="section" id="mpi-job">
+<h2>MPI job<a class="headerlink" href="#mpi-job" title="Permalink to this headline">¶</a></h2>
+<p>Azure ML supports launching an MPI job across multiple nodes and multiple processes per node. It launches the job via <code class="docutils literal notranslate"><span class="pre">mpirun</span></code>. If your training code uses the <strong>Horovod</strong> framework for distributed training, for example, you can leverage this job type to train on Azure ML.</p>
+<p>To launch an MPI job, specify <code class="docutils literal notranslate"><span class="pre">type:</span> <span class="pre">mpi</span></code> and the number of processes per node to launch (<code class="docutils literal notranslate"><span class="pre">process_count_per_instance</span></code>) in the <code class="docutils literal notranslate"><span class="pre">distribution</span></code> section. If this field is not specified, Azure ML will default to launching one process per node. To run a multi-node job, specify the <code class="docutils literal notranslate"><span class="pre">node_count</span></code> field in the <code class="docutils literal notranslate"><span class="pre">compute</span></code> section.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">$schema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json</span>
+<span class="nt">experiment_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tf-mnist</span>
+<span class="nt">code</span><span class="p">:</span>
+  <span class="nt">local_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./src</span>
+<span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python train.py</span>
+<span class="nt">environment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:tf-environment:1</span>
+<span class="nt">distribution</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mpi</span>
+  <span class="nt">process_count_per_instance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">compute</span><span class="p">:</span>
+  <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:goazurego</span>
+  <span class="nt">instance_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tensorflow-job">
+<h2>TensorFlow job<a class="headerlink" href="#tensorflow-job" title="Permalink to this headline">¶</a></h2>
+<p>If you are using native distributed TensorFlow in your training code, e.g. TensorFlow 2.x’s <code class="docutils literal notranslate"><span class="pre">tf.distribute.Strategy</span></code> API, you can run your training job on Azure ML using a TensorFlow distributed job.</p>
+<p>To launch a distributed TensorFlow job, specify <code class="docutils literal notranslate"><span class="pre">type:</span> <span class="pre">tensorflow</span></code> and the number of workers to launch (<code class="docutils literal notranslate"><span class="pre">worker_count</span></code>) in the <code class="docutils literal notranslate"><span class="pre">distribution</span></code> section. To run a multi-node job, specify the <code class="docutils literal notranslate"><span class="pre">node_count</span></code> field in the <code class="docutils literal notranslate"><span class="pre">compute</span></code> section. If you are using <code class="docutils literal notranslate"><span class="pre">tf.distribute.experimental.MultiWorkerMirroredStrategy</span></code>, your <code class="docutils literal notranslate"><span class="pre">worker_count</span></code> should equal the <code class="docutils literal notranslate"><span class="pre">node_count</span></code>.</p>
+<p>If your training code uses the parameter server strategy for distributed training, i.e. for legacy TensorFlow 1.x, you will also need to specify the number of parameter servers to use in the job via the <code class="docutils literal notranslate"><span class="pre">parameter_server_count</span></code> field in the <code class="docutils literal notranslate"><span class="pre">distribution</span></code> section.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">$schema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json</span>
+<span class="nt">experiment_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tf-mnist</span>
+<span class="nt">code</span><span class="p">:</span>
+  <span class="nt">local_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./src</span>
+<span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python train.py --epochs 30 --model-dir outputs/keras-model</span>
+<span class="nt">environment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:tf-environment:1</span>
+<span class="nt">distribution</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tensorflow</span>
+  <span class="nt">worker_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">compute</span><span class="p">:</span>
+  <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:goazurego</span>
+  <span class="nt">instance_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</div>
+<p>In TensorFlow, the <code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code> environment variable is required for training on multiple machines. Azure ML will configure and set the <code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code> variable appropriately for each worker before executing your training script. You can access <code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code> from your training script if you need to via <code class="docutils literal notranslate"><span class="pre">os.environ['TF_CONFIG']</span></code>.</p>
+<p>Example structure of TF_CONFIG set on a chief worker node:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>TF_CONFIG='{
+  "cluster": {
+    "worker": ["host0:2222", "host1:2222"]
+  },
+  "task": {"type": "worker", "index": 0},
+  "environment": "cloud"
+}'
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-a-dask-job">
+<h2>Running a DASK job<a class="headerlink" href="#running-a-dask-job" title="Permalink to this headline">¶</a></h2>
+<p>Please see <a class="reference external" href="https://github.com/Azure/azureml-v2-preview/tree/main/examples/dask">here for the full example code</a> .</p>
+<p>This example shows how a distribted DASK job can be run on multiple nodes of a cluster. In this example we are using 4 nodes
+using this job yaml. The startup of the cluster is done by the <cite>startDask.py</cite> script which launches a scheduler
+and a worker on the first node of the cluster and a worker on all the other nodes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before running the sample, the data needs to be copied to the datastore using the script <cite>python copy_nyc_taxi.py –months 1</cite>
+(<cite>–months</cite> being the number of months data to upload). This will upload the data to a dataset <cite>nyctaxi</cite> on the workspace.
+Note that, depending on the number of months, the script copies up to 24 GB of data (down and then up to the workspace), so
+it is strongly recommended to do this with good connectivity. It works well when run on from an AzureML compute instance
+(takes about 20 minutes).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the script is writing the output to the local drive, and since the dataset is cached on the same local drive,
+your cluster nodes need to have enough free space on the local volume to accomodate pretty much the whole input and output datasets used (to be on the safe side).
+The input dataset will be 24GB in the case of <cite>–months 12</cite>, the parquet output is about 4GB. Using STANDARD_D15_V2 VMs to build your cluster will give you close to 1TB of
+free disk space and works well even for bigger datasets.</p>
+</div>
+<p>If a –script parameter is provided, then the script will run that script after the cluster has been brought up and the job
+will be terminated after the script has completed. To start a DASK cluster for interactive work, don’t provide a –script parameter,
+which will have the job run indefinitely (i.e. until you terminate it).</p>
+<p>The job below is currently launched as a pytorch job since that gives the full flexibility of assigning the work to the
+different nodes of the cluster by just checking the $RANK environment variable. In the future we will provide a more generic
+name for that mode of launching a distributed job.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">$schema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlsdk2.blob.core.windows.net/latest/commandJob.schema.json</span>
+<span class="nt">code</span><span class="p">:</span> 
+  <span class="nt">local_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">src</span>
+
+<span class="c1"># This is the command that will start up the dask cluster and run the script `batch.py` with the following parameters</span>
+<span class="c1"># for an interactive session, just remove the --script. That will just start the cluster</span>
+<span class="c1"># and mount the dataset (which will be found under './AZURE_ML_INPUT0')</span>
+<span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+  <span class="no">python startDask.py</span>
+  <span class="no">--script batch.py </span>
+  <span class="no">--nyc_taxi_dataset {inputs.nyc_taxi_dataset} </span>
+  
+<span class="nt">environment</span><span class="p">:</span> 
+  <span class="nt">conda_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file:dask-conda.yaml</span>
+  <span class="nt">docker</span><span class="p">:</span> 
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu16.04:20210301.v1</span>
+
+<span class="nt">inputs</span><span class="p">:</span>
+  <span class="nt">nyc_taxi_dataset</span><span class="p">:</span>
+    <span class="nt">data</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:nyctaxi:1</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mount</span>
+
+<span class="nt">compute</span><span class="p">:</span>
+  <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml:goazurego</span>
+  <span class="nt">instance_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+
+<span class="nt">distribution</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pytorch</span>
+</pre></div>
+</div>
+<p>For debugging and interactive work, the script also launches a Jupyter server on the first node which can be accessed by ssh tunnelling into
+a node of the cluster (assuming the cluster is not in a VNet). Make sure to provide your SSH public key while setting up the cluster (in ml.azure.com Create Compute Cluster/Settings/Enable SSH access/Use existing public key).
+Then, on your local laptop computer, you can run a command similar to the one below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh azureuser@20.67.29.11 -p 50000 -L 9999:10.0.0.4:8888 -L 9797:10.0.0.4:8787</span>
+</pre></div>
+</div>
+<p>In the above example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">20.67.29.11</span></code> is the public IP address of any of the nodes on the cluster (find in ml.azure.com under Compute/Compute Clusters/&lt;cluster name&gt;/Nodes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">50000</span></code> is the port of that same node</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">9999</span></code> and <code class="docutils literal notranslate"><span class="pre">9797</span></code> are the ports where the jupyter server and the dask dashboard will be reachable on your local machine</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10.0.0.4</span></code> is the private IP of the head node of the job, as will be logged by the job and show up in run history (find in ml.azure.com under Experiments/dask/&lt;run id&gt;/details/metrics/headnode)</p></li>
+</ul>
+<p>Then you should be able to access the following urls:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">http://localhost:9999?token=&lt;jupyter-token&gt;</span></code> for Jupyter, where &lt;jupyter-token&gt; is jupyter-token that will show up in run history (find in ml.azure.com under Experiments/dask/&lt;run id&gt;/details/metrics/jupyter-token)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http://localhost:9797</span></code> for the Dask Dashboard</p></li>
+</ul>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="endpoints.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Deploy Models (WIP)</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="jobs.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Train Models (Create Jobs)</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Microsoft
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/quickstart/distributed-training.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Distributed Training</a><ul>
+<li><a class="reference internal" href="#mpi-job">MPI job</a></li>
+<li><a class="reference internal" href="#tensorflow-job">TensorFlow job</a></li>
+<li><a class="reference internal" href="#running-a-dask-job">Running a DASK job</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

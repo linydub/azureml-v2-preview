@@ -1,0 +1,400 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Compute Resources" href="compute.html" /><link rel="prev" title="Concepts" href="../concepts.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Manage Workspaces - azure.ml 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">azure.ml 0.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">azure.ml 0.1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Cloud Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tooling.html">Tooling Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/distributed-training.html">Distributed Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/endpoints.html">Deploy Models (WIP)</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../concepts.html">Concepts</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Manage Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute.html">Compute Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datastore.html">Manage Datastores (WIP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Manage Data Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Manage Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sweepjob.html">Hyperparameter tune (SweepJob)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Manage Models</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="endpoint.html">Manage Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="endpoints/online-endpoint/online-endpoint.html">Online Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="endpoints/online-endpoint/scenarios.html">Deployment Scenarios</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="endpoints/online-endpoint/scenarios/simple-deploy-flow.html">Simple deploy flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="endpoints/online-endpoint/scenarios/declarative-flow.html">Declarative Canary Flow (aka Gitops flow)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="endpoints/online-endpoint/scenarios/imperative-flow.html">Imperative Canary Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="endpoints/online-endpoint/managed-online-endpoints.html">Managed online endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="endpoints/batch-endpoint/batch-endpoint.html">Batch Endpoint (WIP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/templates.html">ARM Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/qna.html">Q&amp;A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/azure-ml.html">Azure-ML Reference</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="manage-workspaces">
+<h1>Manage Workspaces<a class="headerlink" href="#manage-workspaces" title="Permalink to this headline">¶</a></h1>
+<p>A workspace is a top-level resource for Azure Machine Learning and provides a centralized place to:</p>
+<ul class="simple">
+<li><p>Work with all the artifacts you create during your ML lifecycle such as jobs, models, and endpoints.</p></li>
+<li><p>Store a history of all your assets such as training logs, metrics, and snapshots.</p></li>
+<li><p>Collaborate with other team members.</p></li>
+</ul>
+<div class="section" id="create-a-workspace">
+<h2>Create a workspace<a class="headerlink" href="#create-a-workspace" title="Permalink to this headline">¶</a></h2>
+<p>To create a workspace with basic configurations:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml workspace create --name &lt;NAME OF WORKSPACE&gt;</span>
+</pre></div>
+</div>
+<p>Alternatively, you can also create the workspace by defining the parameters in a YAML file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">basic-ws-1</span>
+</pre></div>
+</div>
+<p>Then run the following command to create the workspace:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml workspace create --file &lt;YAML FILE PATH&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="workspace-specification">
+<h3>Workspace specification<a class="headerlink" href="#workspace-specification" title="Permalink to this headline">¶</a></h3>
+<p>When using a YAML file to define the workspace parameters, it must follow the following schema.</p>
+<p>Here are a few examples defining different kinds of workspaces.</p>
+</div>
+<div class="section" id="basic-fields-and-annotations">
+<h3>Basic fields and annotations<a class="headerlink" href="#basic-fields-and-annotations" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">basic-ws-2</span>
+<span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+<span class="nt">friendly_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">john-workspace</span>
+<span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A workspace for testing enterprise readiness features</span>
+<span class="nt">tags</span><span class="p">:</span>
+  <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">testing</span>
+  <span class="nt">team</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ws-management</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="existing-associated-resources">
+<h3>Existing associated resources<a class="headerlink" href="#existing-associated-resources" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">byo-resources-ws</span>
+<span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+<span class="nt">storage_account</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/123456a-bc78-9d0e-12fg-h345i67jkl8m/resourceGroups/john/providers/Microsoft.Storage/storageAccounts/john123456789</span>
+<span class="nt">container_registry</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/123456a-bc78-9d0e-12fg-h345i67jkl8m/resourceGroups/john/providers/Microsoft.ContainerRegistry/registries/john123456789</span>
+<span class="nt">key_vault</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/123456a-bc78-9d0e-12fg-h345i67jkl8m/resourceGroups/john/providers/Microsoft.KeyVault/vaults/john123456789</span>
+<span class="nt">app_insights</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/123456a-bc78-9d0e-12fg-h345i67jkl8m/resourceGroups/john/providers/Microsoft.insights/components/john123456789</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="private-endpoint-connections">
+<h3>Private endpoint connections<a class="headerlink" href="#private-endpoint-connections" title="Permalink to this headline">¶</a></h3>
+<p>With a single private endpoint:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">single-private-endpoint-ws</span>
+<span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+<span class="nt">private_endpoints</span><span class="p">:</span> 
+  <span class="nt">approval_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AutoApproval</span>
+  <span class="nt">connections</span><span class="p">:</span>
+    <span class="nt">my-endpoint</span><span class="p">:</span>
+      <span class="nt">subscription_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">123456a-bc78-9d0e-12fg-h345i67jkl8m</span>
+      <span class="nt">resource_group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">john</span>
+      <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+      <span class="nt">vnet_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-vnet</span>
+      <span class="nt">subnet_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+</pre></div>
+</div>
+<p>With multiple private endpoints:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">multiple-private-endpint-ws.yml</span>
+<span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+<span class="nt">private_endpoints</span><span class="p">:</span> 
+  <span class="nt">approval_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ManualApproval</span>
+  <span class="nt">connections</span><span class="p">:</span>
+    <span class="nt">my-endpoint1</span><span class="p">:</span>
+      <span class="nt">subscription_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">123456a-bc78-9d0e-12fg-h345i67jkl8m</span>
+      <span class="nt">resource_group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">john</span>
+      <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+      <span class="nt">vnet_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-vnet1</span>
+      <span class="nt">subnet_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+    <span class="nt">my-endpoint2</span><span class="p">:</span>
+      <span class="nt">subscription_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">123456a-bc78-9d0e-12fg-h345i67jkl8m</span>
+      <span class="nt">resource_group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">john</span>
+      <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+      <span class="nt">vnet_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-vnet2</span>
+      <span class="nt">subnet_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="customer-managed-keys">
+<h3>Customer-managed keys<a class="headerlink" href="#customer-managed-keys" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cmk-ws</span>
+<span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+<span class="nt">customer_managed_key</span><span class="p">:</span> 
+  <span class="nt">key_vault</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/123456a-bc78-9d0e-12fg-h345i67jkl8m/resourceGroups/john/providers/Microsoft.KeyVault/vaults/john123456789</span>
+  <span class="nt">key_uri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://mykeyvault.vault.azure.net/keys/test-key/1234567890123456</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="high-business-impact-hbi-flag">
+<h3>High business impact (HBI) flag<a class="headerlink" href="#high-business-impact-hbi-flag" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hbi-ws</span>
+<span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EastUS</span>
+<span class="nt">hbi_workspace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="update-workspace">
+<h2>Update workspace<a class="headerlink" href="#update-workspace" title="Permalink to this headline">¶</a></h2>
+<p>To update a workspace, specify the name of the workspace and a YAML file specifying the new workspace parameters:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml workspace update --name &lt;NAME OF WORKSPACE&gt; --file &lt;YAML FILE PATH&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-workspace">
+<h2>Show workspace<a class="headerlink" href="#show-workspace" title="Permalink to this headline">¶</a></h2>
+<p>To show the details of an existing workspace:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml workspace show --name &lt;NAME OF WORKSPACE&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-workspace">
+<h2>Delete workspace<a class="headerlink" href="#delete-workspace" title="Permalink to this headline">¶</a></h2>
+<p>To delete an existing workspace:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml workspace delete --name &lt;NAME OF WORKSPACE&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-keys-in-the-workspace">
+<h2>List keys in the workspace<a class="headerlink" href="#list-keys-in-the-workspace" title="Permalink to this headline">¶</a></h2>
+<p>To list the keys (storage account keys, etc) used in the workspace:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml workspace list-keys --name &lt;NAME OF WORKSPACE&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sync-keys-in-the-workspace">
+<h2>Sync keys in the workspace<a class="headerlink" href="#sync-keys-in-the-workspace" title="Permalink to this headline">¶</a></h2>
+<p>When workspace keys are rotated, you can reset the workspace cache to immediately sync with the new keys. To do this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml workspace sync-keys --name &lt;NAME OF WORKSPACE&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="compute.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Compute Resources</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../concepts.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Concepts</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Microsoft
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../_sources/overview/concepts/workspace.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Manage Workspaces</a><ul>
+<li><a class="reference internal" href="#create-a-workspace">Create a workspace</a><ul>
+<li><a class="reference internal" href="#workspace-specification">Workspace specification</a></li>
+<li><a class="reference internal" href="#basic-fields-and-annotations">Basic fields and annotations</a></li>
+<li><a class="reference internal" href="#existing-associated-resources">Existing associated resources</a></li>
+<li><a class="reference internal" href="#private-endpoint-connections">Private endpoint connections</a></li>
+<li><a class="reference internal" href="#customer-managed-keys">Customer-managed keys</a></li>
+<li><a class="reference internal" href="#high-business-impact-hbi-flag">High business impact (HBI) flag</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#update-workspace">Update workspace</a></li>
+<li><a class="reference internal" href="#show-workspace">Show workspace</a></li>
+<li><a class="reference internal" href="#delete-workspace">Delete workspace</a></li>
+<li><a class="reference internal" href="#list-keys-in-the-workspace">List keys in the workspace</a></li>
+<li><a class="reference internal" href="#sync-keys-in-the-workspace">Sync keys in the workspace</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

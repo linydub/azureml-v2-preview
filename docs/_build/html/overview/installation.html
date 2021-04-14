@@ -1,0 +1,318 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Cloud Setup" href="setup.html" /><link rel="prev" title="azure.ml" href="../index.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Installation - azure.ml 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">azure.ml 0.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">azure.ml 0.1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Cloud Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tooling.html">Tooling Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/distributed-training.html">Distributed Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/endpoints.html">Deploy Models (WIP)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="concepts.html">Concepts</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/workspace.html">Manage Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/compute.html">Compute Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/datastore.html">Manage Datastores (WIP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/data.html">Manage Data Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/environment.html">Manage Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/sweepjob.html">Hyperparameter tune (SweepJob)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/model.html">Manage Models</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="concepts/endpoint.html">Manage Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="concepts/endpoints/online-endpoint/online-endpoint.html">Online Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios.html">Deployment Scenarios</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/simple-deploy-flow.html">Simple deploy flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/declarative-flow.html">Declarative Canary Flow (aka Gitops flow)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/imperative-flow.html">Imperative Canary Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="concepts/endpoints/online-endpoint/managed-online-endpoints.html">Managed online endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/endpoints/batch-endpoint/batch-endpoint.html">Batch Endpoint (WIP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/templates.html">ARM Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/qna.html">Q&amp;A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/azure-ml.html">Azure-ML Reference</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>You can install <em>azure.ml</em> on Linux, MacOS, and Windows for several interfaces.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Only the command line interface is available for private preview.</p>
+</div>
+<div class="section" id="command-line-interface-cli">
+<h2>Command Line Interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">az</span> <span class="pre">ml</span></code> CLI provides full access to Azure ML.</p>
+<div class="section" id="terminal">
+<h3>Terminal<a class="headerlink" href="#terminal" title="Permalink to this headline">¶</a></h3>
+<p>Launch any terminal.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A cloud shell (<a class="reference external" href="https://shell.azure.com">https://shell.azure.com</a>) is recommended for private preview to avoid conflicting installations.</p>
+</div>
+</div>
+<div class="section" id="azure-cli-install">
+<h3>Azure CLI Install<a class="headerlink" href="#azure-cli-install" title="Permalink to this headline">¶</a></h3>
+<p>If you do not have the Azure CLI installed, follow the installation instructions at <a class="reference external" href="https://docs.microsoft.com/cli/azure/install-azure-cli">https://docs.microsoft.com/cli/azure/install-azure-cli</a>.</p>
+<p>Verify installation:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az version</span>
+</pre></div>
+</div>
+<p>The Azure ML extension requires CLI version <strong>&gt;=2.15.0</strong>. To upgrade your CLI installation, please run the below command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az upgrade</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ml-extension-install">
+<h3>ML Extension Install<a class="headerlink" href="#ml-extension-install" title="Permalink to this headline">¶</a></h3>
+<p>Remove any previous extension installations:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az extension remove -n ml; az extension remove -n azure-cli-ml</span>
+</pre></div>
+</div>
+<p>Install the Azure CLI extension for ML:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This will be simplified to “<code class="docutils literal notranslate"><span class="pre">az</span> <span class="pre">extension</span> <span class="pre">add</span> <span class="pre">-n</span> <span class="pre">ml</span></code>” for public preview.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">extension</span> <span class="n">add</span> <span class="o">--</span><span class="n">source</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">azuremlsdktestpypi</span><span class="o">.</span><span class="n">blob</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">windows</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">wheels</span><span class="o">/</span><span class="n">sdk</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">v2</span><span class="o">/</span><span class="n">ml</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">64</span><span class="o">-</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="o">--</span><span class="n">pip</span><span class="o">-</span><span class="n">extra</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="n">urls</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">azuremlsdktestpypi</span><span class="o">.</span><span class="n">azureedge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">sdk</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">v2</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>Verify installation:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml -h</span>
+</pre></div>
+</div>
+<p>You should see the following output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Group</span>
+<span class="go">    az ml</span>
+<span class="go">        This command group is experimental and under development. Reference and support levels:</span>
+<span class="go">        https://aka.ms/CLI_refstatus</span>
+<span class="go">Subgroups:</span>
+<span class="go">    code        : Manage Azure ML code assets.</span>
+<span class="go">    compute     : Manage Azure ML compute resources.</span>
+<span class="go">    data        : Manage Azure ML data assets.</span>
+<span class="go">    datastore   : Manage Azure ML datastores.</span>
+<span class="go">    endpoint    : Manage Azure ML endpoints.</span>
+<span class="go">    environment : Manage Azure ML environments.</span>
+<span class="go">    job         : Manage Azure ML jobs.</span>
+<span class="go">    model       : Manage Azure ML models.</span>
+<span class="go">    workspace   : Manage Azure ML workspaces.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="setup.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Cloud Setup</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../index.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Microsoft
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/overview/installation.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#command-line-interface-cli">Command Line Interface (CLI)</a><ul>
+<li><a class="reference internal" href="#terminal">Terminal</a></li>
+<li><a class="reference internal" href="#azure-cli-install">Azure CLI Install</a></li>
+<li><a class="reference internal" href="#ml-extension-install">ML Extension Install</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

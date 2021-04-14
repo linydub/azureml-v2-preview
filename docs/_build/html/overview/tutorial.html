@@ -1,0 +1,342 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Tutorial - azure.ml 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">azure.ml 0.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">azure.ml 0.1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Cloud Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tooling.html">Tooling Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/distributed-training.html">Distributed Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/endpoints.html">Deploy Models (WIP)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="concepts.html">Concepts</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/workspace.html">Manage Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/compute.html">Compute Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/datastore.html">Manage Datastores (WIP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/data.html">Manage Data Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/environment.html">Manage Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/sweepjob.html">Hyperparameter tune (SweepJob)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/model.html">Manage Models</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="concepts/endpoint.html">Manage Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="concepts/endpoints/online-endpoint/online-endpoint.html">Online Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios.html">Deployment Scenarios</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/simple-deploy-flow.html">Simple deploy flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/declarative-flow.html">Declarative Canary Flow (aka Gitops flow)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/imperative-flow.html">Imperative Canary Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="concepts/endpoints/online-endpoint/managed-online-endpoints.html">Managed online endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/endpoints/batch-endpoint/batch-endpoint.html">Batch Endpoint (WIP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/templates.html">ARM Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/qna.html">Q&amp;A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/azure-ml.html">Azure-ML Reference</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>Follow this 10 minute tutorial to get started with <cite>azure.ml</cite>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This tutorial is not yet functional, please help! Keep it simple.</p>
+</div>
+<div class="section" id="hello-world">
+<h2>Hello World!<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
+<div class="toggle docutils container">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Local execution is not in scope for private preview.</p>
+</div>
+<p>Let’s start by running our first job tracked in the cloud:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job create --command "echo 'hello world!'"</span>
+</pre></div>
+</div>
+<p>We can view it in the ML studio:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This will open your web browser! Omit the <code class="docutils literal notranslate"><span class="pre">--web</span></code> for the CLI view.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job view --web</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hello-azure">
+<h2>Hello Azure!<a class="headerlink" href="#hello-azure" title="Permalink to this headline">¶</a></h2>
+<p>Let’s run that on the cloud!</p>
+<p>First, create a compute target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml compute create --name default --vm-size Standard_DS3_v2</span>
+</pre></div>
+</div>
+<p>Submit to the new compute target:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job create --command "echo 'hello azure!'" --target default</span>
+</pre></div>
+</div>
+<p>View the output in the ML studio:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job view --web</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="training-a-model">
+<h2>Training a model<a class="headerlink" href="#training-a-model" title="Permalink to this headline">¶</a></h2>
+<p>Let’s train a simple lightgbm model on the Iris dataset.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job create --command "lightgbm --task train --objective multiclass --label Species --data $inputs.iris --inputs iris=https://azuremlexamples.blob.core.windows.net/datasets/iris.csv --environment azureml/lightgbm</span>
+</pre></div>
+</div>
+<p>That’s a lot to write out on the command line - let’s write it down as <code class="docutils literal notranslate"><span class="pre">job.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lightgbm --task train --objective multiclass --label Species --data $inputs.data</span>
+<span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">environment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml/lightgbm</span>
+<span class="nt">inputs</span><span class="p">:</span>
+  <span class="nt">iris</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlexamples.blob.core.windows.net/datasets/iris.csv</span>
+</pre></div>
+</div>
+<p>And run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job create -f job.yml</span>
+</pre></div>
+</div>
+<p>View the run in the studio - check the model artifacts!</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job view --web</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tune-parameters">
+<h2>Tune parameters<a class="headerlink" href="#tune-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Let’s add a sweep section to the job configuration to tune the learning rate and [pick something else].</p>
+<p>Write <code class="docutils literal notranslate"><span class="pre">job-sweep.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+    <span class="no">lightgbm --task train</span>
+             <span class="no">--objective multiclass</span>
+             <span class="no">--label Species</span>
+             <span class="no">--learning-rate $inputs.learning_rate</span>
+             <span class="no">--boosting $inputs.boosting</span>
+             <span class="no">--data $inputs.data</span>
+<span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">environment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azureml/lightgbm</span>
+<span class="nt">inputs</span><span class="p">:</span>
+  <span class="nt">iris</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlexamples.blob.core.windows.net/datasets/iris.csv</span>
+<span class="nt">search_space</span><span class="p">:</span>
+  <span class="nt">learning-rate</span><span class="p">:</span>
+    <span class="nt">spec</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">uniform</span>
+    <span class="nt">min_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.001</span>
+    <span class="nt">max_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
+  <span class="nt">boosting</span><span class="p">:</span>
+    <span class="nt">spec</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">categorical</span>
+    <span class="nt">options</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">"gdbt"</span><span class="p p-Indicator">,</span> <span class="s">"dart"</span><span class="p p-Indicator">]</span>
+<span class="nt">objective</span><span class="p">:</span>
+  <span class="nt">primary_metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">accuracy</span>
+  <span class="nt">goal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">maximize</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml job create -f job-sweep.yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deploy-to-endpoint">
+<h2>Deploy to endpoint<a class="headerlink" href="#deploy-to-endpoint" title="Permalink to this headline">¶</a></h2>
+<p>Let’s deploy the best model as an endpoint.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml endpoint create --name</span>
+</pre></div>
+</div>
+<p>Let’s test the endpoint.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az ml endpoint</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Microsoft
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/overview/tutorial.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial</a><ul>
+<li><a class="reference internal" href="#hello-world">Hello World!</a></li>
+<li><a class="reference internal" href="#hello-azure">Hello Azure!</a></li>
+<li><a class="reference internal" href="#training-a-model">Training a model</a></li>
+<li><a class="reference internal" href="#tune-parameters">Tune parameters</a></li>
+<li><a class="reference internal" href="#deploy-to-endpoint">Deploy to endpoint</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

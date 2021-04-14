@@ -1,0 +1,398 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../../genindex.html" /><link rel="search" title="Search" href="../../../../../search.html" /><link rel="next" title="Managed online endpoints" href="../managed-online-endpoints.html" /><link rel="prev" title="Declarative Canary Flow (aka Gitops flow)" href="declarative-flow.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Imperative Canary Flow - azure.ml 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" href="../../../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../../index.html"><div class="brand">azure.ml 0.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">azure.ml 0.1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../setup.html">Cloud Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tooling.html">Tooling Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart/distributed-training.html">Distributed Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart/endpoints.html">Deploy Models (WIP)</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../../concepts.html">Concepts</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../workspace.html">Manage Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../compute.html">Compute Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../datastore.html">Manage Datastores (WIP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../data.html">Manage Data Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../environment.html">Manage Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sweepjob.html">Hyperparameter tune (SweepJob)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../model.html">Manage Models</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../../../endpoint.html">Manage Endpoints (WIP)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../online-endpoint.html">Online Endpoints (WIP)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4 current has-children"><a class="reference internal" href="../scenarios.html">Deployment Scenarios</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="simple-deploy-flow.html">Simple deploy flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="declarative-flow.html">Declarative Canary Flow (aka Gitops flow)</a></li>
+<li class="toctree-l5 current current-page"><a class="current reference internal" href="#">Imperative Canary Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../managed-online-endpoints.html">Managed online endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch-endpoint/batch-endpoint.html">Batch Endpoint (WIP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference/templates.html">ARM Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference/qna.html">Q&amp;A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference/azure-ml.html">Azure-ML Reference</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="imperative-canary-flow">
+<span id="imperative-flow"></span><h1>Imperative Canary Flow<a class="headerlink" href="#imperative-canary-flow" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Private preview for this functionality is invite only at this point</p>
+</div>
+<p><a class="reference internal" href="declarative-flow.html#declarative-flow"><span class="std std-ref">Declarative Canary Flow (aka Gitops flow)</span></a> section explains the concept of Canary deployment and how to do it in a fully git backed approach.
+In this scenario, we execute a canary deployment flow, however without having to perform all updates via the endpoint yaml.
+In this case we will have a yaml file for endpoint and seperate yaml files for each deployment.
+Operations like scaling up, changing traffic or deleting deployments can be done directly using the CLI wihtout updating the YAML.
+This approach could be useful during development time. The <a class="reference internal" href="declarative-flow.html#declarative-flow"><span class="std std-ref">Declarative Canary Flow (aka Gitops flow)</span></a> would be useful for a production scenario.</p>
+<div class="section" id="step-1-deploy-the-v1-version-of-the-model-blue">
+<h2>Step 1: Deploy the v1 version of the model(blue)<a class="headerlink" href="#step-1-deploy-the-v1-version-of-the-model-blue" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-1a-create-an-empty-endpoint-no-deployment-and-no-set-traffic-rules">
+<h3>Step 1a: Create an empty endpoint (no deployment and no set traffic rules)<a class="headerlink" href="#step-1a-create-an-empty-endpoint-no-deployment-and-no-set-traffic-rules" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint create --name imperative-endpt -f examples/endpoints/online/managed/canary-imperative-flow/1-create-endpoint.yaml
+</pre></div>
+</div>
+<p><strong>Note</strong>: Replace the above endpoint name with a unique name (it should be unique at region level)</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">$schema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlsdk2.blob.core.windows.net/latest/onlineEndpoint.schema.json</span>
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-new-endpoint</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">online</span>
+<span class="nt">auth_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aml_token</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-1b-create-the-deployment">
+<h3>Step 1b: create the deployment<a class="headerlink" href="#step-1b-create-the-deployment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint update -n imperative-endpt --deployment blue --deployment-file examples/endpoints/online/managed/canary-imperative-flow/2-create-blue.yaml
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">$schema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlsdk2.blob.core.windows.net/latest/onlineDeployment.schema.json</span>
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">blue</span>
+<span class="nt">model</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">model-1</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">local_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../../model-1/model/sklearn_regression_model.pkl</span>
+<span class="nt">code_configuration</span><span class="p">:</span>
+  <span class="nt">code</span><span class="p">:</span> 
+    <span class="nt">local_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../../model-1/onlinescoring/</span>
+  <span class="nt">scoring_script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">score.py</span>
+<span class="nt">environment</span><span class="p">:</span> 
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">env-model1</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+  <span class="nt">conda_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file:../../model-1/environment/conda.yml</span>
+  <span class="nt">docker</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu16.04:20210301.v1</span>
+<span class="nt">instance_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Standard_F2s_v2</span>
+<span class="nt">scale_settings</span><span class="p">:</span>
+  <span class="nt">scale_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">manual</span>
+  <span class="nt">instance_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">min_instances</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_instances</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-1c-set-traffic">
+<h3>Step 1c: Set traffic<a class="headerlink" href="#step-1c-set-traffic" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint update --name imperative-endpt --traffic <span class="s2">"blue:100"</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-1d-test-the-endpoint">
+<h3>Step 1d: Test the endpoint<a class="headerlink" href="#step-1d-test-the-endpoint" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint invoke --name imperative-endpt --request-file examples/endpoints/online/model-1/sample-request.json
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-2-scale-the-blue-deployment-to-handle-additional-traffic">
+<h2>Step 2: Scale the blue deployment to handle additional traffic<a class="headerlink" href="#step-2-scale-the-blue-deployment-to-handle-additional-traffic" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint update --name imperative-endpt --deployment blue --instance-count <span class="m">2</span>
+</pre></div>
+</div>
+<p>you can also use the generic –set to update any attribute</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint update --name imperative-endpt --set deployments.blue.scale.instance_count<span class="o">=</span><span class="m">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-deploy-a-new-model-green-to-the-endpoint-but-taking-no-live-traffic-yet">
+<h2>Step 3: Deploy a new model (green) to the endpoint, but taking NO live traffic yet<a class="headerlink" href="#step-3-deploy-a-new-model-green-to-the-endpoint-but-taking-no-live-traffic-yet" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint update  --name imperative-endpt --deployment-file examples/endpoints/online/managed/canary-imperative-flow/3-create-green.yaml  --traffic <span class="s2">"blue:100,green:0"</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">$schema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://azuremlsdk2.blob.core.windows.net/latest/onlineDeployment.schema.json</span>
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">green</span>
+<span class="nt">model</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">model-2</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">local_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../../model-2/model/sklearn_regression_model.pkl</span>
+<span class="nt">code_configuration</span><span class="p">:</span>
+  <span class="nt">code</span><span class="p">:</span> 
+    <span class="nt">local_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../../model-2/onlinescoring/</span>
+  <span class="nt">scoring_script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">score.py</span>
+<span class="nt">environment</span><span class="p">:</span> 
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">env-model2</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+  <span class="nt">conda_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file:../../model-2/environment/conda.yml</span>
+  <span class="nt">docker</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu16.04:20210301.v1</span>
+<span class="nt">instance_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Standard_F2s_v2</span>
+<span class="nt">scale_settings</span><span class="p">:</span>
+  <span class="nt">scale_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">manual</span>
+  <span class="nt">instance_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">min_instances</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_instances</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</div>
+<p><strong>Test the new deployment by directly invoking it</strong> (since invoking the endpoint would only use the blue deployment for now)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint invoke --name imperative-endpt --deployment green --request-file examples/endpoints/online/model-2/sample-request.json
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-move-small-percentage-of-live-traffic-to-green">
+<h2>Step 4: Move small percentage of live traffic to green<a class="headerlink" href="#step-4-move-small-percentage-of-live-traffic-to-green" title="Permalink to this headline">¶</a></h2>
+<p>To perform the update directly,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint update --name imperative-endpt --traffic <span class="s2">"blue:90,green:10"</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-let-the-green-deployment-take-on-the-full-traffic">
+<h2>Step 5: Let the green deployment take on the full traffic<a class="headerlink" href="#step-5-let-the-green-deployment-take-on-the-full-traffic" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint update --name imperative-endpt --traffic <span class="s2">"blue:0,green:100"</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-now-since-green-is-working-fine-lets-delete-the-blue-deployment">
+<h2>Step 6: Now since green is working fine, lets delete the blue deployment<a class="headerlink" href="#step-6-now-since-green-is-working-fine-lets-delete-the-blue-deployment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint delete --name imperative-endpt --deployment blue
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7-cleanup-delete-the-endpoint">
+<h2>Step 7: Cleanup - delete the endpoint<a class="headerlink" href="#step-7-cleanup-delete-the-endpoint" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az ml endpoint delete --name imperative-endpt
+</pre></div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../managed-online-endpoints.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Managed online endpoints</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="declarative-flow.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Declarative Canary Flow (aka Gitops flow)</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Microsoft
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../../../_sources/overview/concepts/endpoints/online-endpoint/scenarios/imperative-flow.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Imperative Canary Flow</a><ul>
+<li><a class="reference internal" href="#step-1-deploy-the-v1-version-of-the-model-blue">Step 1: Deploy the v1 version of the model(blue)</a><ul>
+<li><a class="reference internal" href="#step-1a-create-an-empty-endpoint-no-deployment-and-no-set-traffic-rules">Step 1a: Create an empty endpoint (no deployment and no set traffic rules)</a></li>
+<li><a class="reference internal" href="#step-1b-create-the-deployment">Step 1b: create the deployment</a></li>
+<li><a class="reference internal" href="#step-1c-set-traffic">Step 1c: Set traffic</a></li>
+<li><a class="reference internal" href="#step-1d-test-the-endpoint">Step 1d: Test the endpoint</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-2-scale-the-blue-deployment-to-handle-additional-traffic">Step 2: Scale the blue deployment to handle additional traffic</a></li>
+<li><a class="reference internal" href="#step-3-deploy-a-new-model-green-to-the-endpoint-but-taking-no-live-traffic-yet">Step 3: Deploy a new model (green) to the endpoint, but taking NO live traffic yet</a></li>
+<li><a class="reference internal" href="#step-4-move-small-percentage-of-live-traffic-to-green">Step 4: Move small percentage of live traffic to green</a></li>
+<li><a class="reference internal" href="#step-5-let-the-green-deployment-take-on-the-full-traffic">Step 5: Let the green deployment take on the full traffic</a></li>
+<li><a class="reference internal" href="#step-6-now-since-green-is-working-fine-lets-delete-the-blue-deployment">Step 6: Now since green is working fine, lets delete the blue deployment</a></li>
+<li><a class="reference internal" href="#step-7-cleanup-delete-the-endpoint">Step 7: Cleanup - delete the endpoint</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

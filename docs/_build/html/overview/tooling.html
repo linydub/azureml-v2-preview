@@ -1,0 +1,304 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Train Models (Create Jobs)" href="../quickstart/jobs.html" /><link rel="prev" title="Cloud Setup" href="setup.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Tooling Setup - azure.ml 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">azure.ml 0.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">azure.ml 0.1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Cloud Setup</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tooling Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/distributed-training.html">Distributed Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/endpoints.html">Deploy Models (WIP)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="concepts.html">Concepts</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/workspace.html">Manage Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/compute.html">Compute Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/datastore.html">Manage Datastores (WIP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/data.html">Manage Data Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/environment.html">Manage Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/jobs.html">Train Models (Create Jobs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/sweepjob.html">Hyperparameter tune (SweepJob)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/model.html">Manage Models</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="concepts/endpoint.html">Manage Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="concepts/endpoints/online-endpoint/online-endpoint.html">Online Endpoints (WIP)</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios.html">Deployment Scenarios</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/simple-deploy-flow.html">Simple deploy flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/declarative-flow.html">Declarative Canary Flow (aka Gitops flow)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="concepts/endpoints/online-endpoint/scenarios/imperative-flow.html">Imperative Canary Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="concepts/endpoints/online-endpoint/managed-online-endpoints.html">Managed online endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/endpoints/batch-endpoint/batch-endpoint.html">Batch Endpoint (WIP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/templates.html">ARM Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/feedback.html">Feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/qna.html">Q&amp;A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/azure-ml.html">Azure-ML Reference</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="tooling-setup">
+<h1>Tooling Setup<a class="headerlink" href="#tooling-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="vs-code">
+<h2>VS Code<a class="headerlink" href="#vs-code" title="Permalink to this headline">¶</a></h2>
+<p>Use VS Code and the Azure Machine Learning (AzML) extension for an enhanced editing experience as you work through the concepts in these docs.</p>
+<div class="section" id="id1">
+<h3>VS Code<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Install the latest Stable version of VS Code from <a class="reference external" href="https://code.visualstudio.com/Download">here</a>.</p>
+</div>
+<div class="section" id="azure-ml-extension">
+<h3>Azure ML Extension<a class="headerlink" href="#azure-ml-extension" title="Permalink to this headline">¶</a></h3>
+<p>Install the latest version of the Azure ML extension from <a class="reference external" href="https://aka.ms/aml-ext">here</a>, or through the extension marketplace in VS Code:</p>
+<img alt="Azure ML extension displayed in VS Code extension marketplace" src="../_images/extension-marketplace.png"/>
+<p>If you’re not signed-in to your Azure account, please follow the prompts to do so. If you already have the extension installed, ensure that you’re using the latest version (0.6.21) which includes the AzML language support.</p>
+<p>Once the extension is installed, use the command “Azure ML: Set Default Workspace” or click on the “Set Azure ML Workspace” option in the status bar.</p>
+<img alt="Status bar set default workspace prompt" src="../_images/amlext-status-bar.png"/>
+<p>Follow the prompts and choose your subscription and workspace. The bottom status bar will be automatically updated once you’ve confirmed your selection.</p>
+</div>
+<div class="section" id="schema-property">
+<h3>$schema Property<a class="headerlink" href="#schema-property" title="Permalink to this headline">¶</a></h3>
+<p>To get started with the language support, you can create a new empty YAML file in VS Code. The first step to get completions is to set a schema in the file.</p>
+<p>You can achieve this by inputting the property <code class="docutils literal notranslate"><span class="pre">$schema</span></code> at the top of the file and invoking completions through one of:
+1. Inputting Ctrl + Space.
+2. Starting typing the name of the resource you wish to author (e.g. Command Job, Batch Deployment).</p>
+<p>The Azure ML extension will surface a list of resources for which a public schema is available. You no longer have to search for the correct schema URL or manually change VS Code settings to enable language server support.</p>
+<p>With an automatically populated schema URL, you can start invoking basic schema completions in the file.</p>
+<img alt="Schema property and completions" src="../_images/schema_completions.gif"/>
+</div>
+<div class="section" id="resource-completions">
+<h3>Resource Completions<a class="headerlink" href="#resource-completions" title="Permalink to this headline">¶</a></h3>
+<p>As you begin to author configuration files as listed in this documentation, you will have the opportunity to specify Azure ML resources in your workspace through the <code class="docutils literal notranslate"><span class="pre">azureml:</span></code> moniker.</p>
+<p>Given that you have a default workspace set through the extension, you can invoke completions for resources through one of:
+1. Starting to type the name of the resource.
+2. Inputting Ctrl + Space following the property tag.</p>
+<p>The extension does its best to provide you with additional information to help make a selection when you’re providing a value for a property. For example, when inputting a compute target the extension will surface both AmlCompute and ComputeInstance resources with subtext in the completion list to help you differentiate.</p>
+<p>For versioned resources (e.g., dataset or environment) only the latest version is shown. In the future, the extension aims to surface resource details for all the versions associated with a resource.</p>
+<img alt="Completions for resources based on workspace and property context" src="../_images/resource_completions.gif"/>
+</div>
+<div class="section" id="resource-diagnostics">
+<h3>Resource Diagnostics<a class="headerlink" href="#resource-diagnostics" title="Permalink to this headline">¶</a></h3>
+<p>Another benefit of using the extension when authoring configuration files is validation not only based on the reference schema (e.g., is the property I’ve added valid for the resource I’m trying to create), but also validation for any resources that you input through the <code class="docutils literal notranslate"><span class="pre">azureml:</span></code> moniker.</p>
+<p>The extension will cross-reference all values with resources in your default workspace. If the extension detects an incorrectly specified resource, an inline error will be shown.</p>
+<p>Quick-fixes and suggestions are part of the future work for diagnostics.</p>
+<img alt="Schema-based and resource diagnostics" src="../_images/resource_diagnostics.gif"/>
+</div>
+<div class="section" id="feedback">
+<h3>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h3>
+<p>The Azure ML extension team would love your feedback on the current language support. If you’d like to file bugs, improvements, or suggest new feature suggestions please do so via <a class="reference external" href="https://github.com/microsoft/vscode-tools-for-ai/issues">this link</a>.</p>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../quickstart/jobs.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Train Models (Create Jobs)</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="setup.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Cloud Setup</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2020, Microsoft
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/overview/tooling.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tooling Setup</a><ul>
+<li><a class="reference internal" href="#vs-code">VS Code</a><ul>
+<li><a class="reference internal" href="#id1">VS Code</a></li>
+<li><a class="reference internal" href="#azure-ml-extension">Azure ML Extension</a></li>
+<li><a class="reference internal" href="#schema-property">$schema Property</a></li>
+<li><a class="reference internal" href="#resource-completions">Resource Completions</a></li>
+<li><a class="reference internal" href="#resource-diagnostics">Resource Diagnostics</a></li>
+<li><a class="reference internal" href="#feedback">Feedback</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>
