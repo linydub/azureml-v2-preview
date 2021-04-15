@@ -29,7 +29,7 @@ Minimal endpoint specification - batch
   type: batch
   auth_mode: AMLToken
   deployments:
-    blue:    
+    - name: blue    
       model: azureml:models/sklearn_regression_model:1
       code_configuration:
         code:

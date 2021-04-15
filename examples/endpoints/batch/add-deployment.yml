@@ -1,3 +1,4 @@
+name: batch-deployment
 model: 
   name: mnist
   version: 1

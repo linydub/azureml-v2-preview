@@ -6,7 +6,7 @@ traffic:
     etblue: 80
     etgreen: 20
 deployments:
-    etblue:   
+    -   name: etblue   
         model: azureml:my-model-1:1
         code_configuration:
             code:
@@ -27,7 +27,7 @@ deployments:
         resource_requirements:
             cpu: 1.5
             # memory_in_gb: 1.0
-    etgreen:   
+    -   name: etgreen   
         model: azureml:my-model-2:1
         code_configuration:
             code:
